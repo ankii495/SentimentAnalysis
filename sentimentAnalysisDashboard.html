@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Sentiment Analysis</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	/>
+	<script data-require="bootstrap@3.3.7" data-semver="3.3.7" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../chartJsTest/deps/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script src="../chartJsTest/deps/angular-chart.js"></script>
+	<script src="./script.js"></script>
+	
+	<style>
+   .chart-container {
+        position: relative;
+    }
+    chart-legend {
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        transform: translateY(-50%);
+    }
+</style> 
+</head>
+
+<body ng-app="app">
+	<div id="container" class="container">
+	  <div class="panel panel-default">
+	   <div class="panel-heading" style="text-align:center;background: #67aab1;color: white;"><h1>Sentiment Analysis</h1></div>
+	   <div class="panel-body">
+		<div class="row" ng-controller="BarCtrl" style="margin-top:-96px;"><br><br><br><br><br>
+			<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1; color: white;">Products Twitter Sentiment</div>
+					<div class="panel-body">
+						<canvas id="bar" class="chart chart-bar" chart-data="dataProduct" chart-labels="labelsProduct" chart-series="series" chart-colors="[blue,red,green]" chart-options="chartOptions"></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">Companies Twitter Sentiment</div>
+					<div class="panel-body">
+					    <canvas id="line" class="chart chart-line" chart-data="dataCompany"chart-labels="labelsCompany" chart-series="series" chart-options="optionsOne" chart-dataset-override="datasetOverride" chart-click="onClick" ></canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">CompanyX: Twitter Sentiment </div>
+					<div class="panel-body">
+					<canvas id="polar-area" class="chart chart-polar-area"
+  chart-data="dataCompanyOne" chart-labels="labelsCompanyOne" chart-options="options">
+</canvas> 
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">CompanyY: Twitter Sentiment</div>
+					<div class="panel-body">
+				<canvas id="base" class="chart-horizontal-bar" chart-data="dataCompanyTwo" chart-labels="labelsCompanyTwo" chart-colors="[blue,red,green]" chart-series="series" chart-options="chartOptionsLine"></></canvas> 
+					</div>
+				</div>
+			</div>
+				<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">Company X: Twitter Sentiment ProductA</div>
+					<div class="panel-body">
+				<canvas id="base" class="chart-horizontal-bar" chart-data="dataProductOne" chart-labels="labelsProductOne" chart-colors="[blue,red,green]" chart-series="series" chart-options="chartOptionsLine"></ ></canvas> 
+					</div>
+				</div>
+			</div>
+				<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">Company X: Twitter Sentiment ProductB</div>
+					<div class="panel-body">
+				<canvas id="base" class="chart-horizontal-bar" chart-data="dataProductTwo" chart-labels="labelsProductTwo" chart-colors="[blue,red,green]" chart-series="series" chart-options="chartOptionsLine"></></canvas> 
+					</div>
+				</div>
+			</div>
+				<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">Company Y: Twitter Sentiment ProductA1</div>
+					<div class="panel-body">
+				<canvas id="base" class="chart-horizontal-bar" chart-data="dataProductThree" chart-labels="labelsProductThree" chart-colors="[blue,red,green]" chart-series="series" chart-options="chartOptionsLine"></canvas> 
+					</div>
+				</div>
+			</div>
+				<div class="col-lg-6 col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="background: #67aab1;
+    color: white;">Company Y: Twitter Sentiment ProdcutB1</div>
+					<div class="panel-body">
+				<canvas id="base" class="chart-horizontal-bar" chart-data="dataProductFour" chart-labels="labelsProductFour" chart-colors="[blue,red,green]" chart-series="series" chart-options="chartOptionsLine"></></canvas> 
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</body>
+
+</html>
